@@ -3,39 +3,39 @@ import { Project } from "../types";
 // TODO: Move this to API
 export const PROJECTS: Project[] = [
   {
-    title: 'EcoCAR CAV Team — Intersection Handling (RL)',
+    title: 'EcoCAR Intersection RL',
     date: '09/2025–Present',
-    subtext: 'Engineered intersection-handling logic for an autonomous vehicle with PPO (RL) + Simulink; collaborated on sensor-fusion pipelines in RTMaps. ~95% success rate in validation.',
+    subtext: 'Taught an EcoCAR to handle intersections with PPO + Simulink and RTMaps sensor fusion. The car listens better than most humans at a 4‑way stop.',
     url: '',
   },
   {
-    title: 'ML Intern — NLP Sentiment Analysis (Vertex AI)',
+    title: 'Vertex AI Sentiment',
     date: '06/2023–08/2023',
-    subtext: 'Built an NLP sentiment analysis system on Google Cloud Vertex AI (92% accuracy). Optimized transformer/ML inference for ~40% lower latency to enable real-time analytics.',
+    subtext: 'Built an NLP sentiment system on Google Cloud Vertex AI (92% accuracy) and trimmed inference latency by ~40% so dashboards update before the meeting ends.',
     url: '',
   },
   {
-    title: 'VR Intern — Unity Safety Training + Blender Assets',
+    title: 'VR Safety Trainer',
     date: '05/2024–10/2024',
-    subtext: 'Built a Unity-based VR fire safety training app, saving 20+ staff hours and $500+ per session by reducing physical drills. Created/optimized 15+ Blender assets for plant-visit modules.',
+    subtext: 'Unity-based VR fire safety training that saved 20+ staff hours and $500+ per session—plus fewer fake fires in the office.',
     url: '',
   },
   {
-    title: 'Decentralized Learning for Medical Imaging (Privacy-Preserving)',
+    title: 'Decentralized Med Imaging',
     date: '08/2025–12/2025',
-    subtext: 'Engineered a custom cross-silo decentralized learning orchestration pipeline to simulate hospital networks. Achieved ~80% accuracy on PathMNIST, retaining 94% of centralized baseline over 100+ experiments.',
+    subtext: 'Simulated cross-silo decentralized learning over hospital networks, keeping data private while retaining ~94% of centralized accuracy on PathMNIST.',
     url: '',
   },
   {
-    title: 'Football Match Analysis (Real-time Tracking)',
+    title: 'Football Match Tracker',
     date: '04/2025–05/2025',
-    subtext: 'Built a real-time tracking + visualization pipeline at 30 FPS using YOLOv5 + OpenCV. Labeled 2,000+ frames with Roboflow and debugged tracking failures.',
+    subtext: 'YOLOv5 + OpenCV pipeline for live match analytics at 30 FPS. Annotated 2,000+ frames so the model knows the offside line better than the ref.',
     url: '',
   },
   {
-    title: 'Visual Question Answering (CLIP + LSTM)',
+    title: 'Visual QA (CLIP + LSTM)',
     date: '10/2023–12/2023',
-    subtext: 'Built a multimodal VQA system combining CLIP embeddings with LSTM-based language modeling. Implemented attention + token embeddings for stronger visual-text alignment; reached ~85% accuracy.',
+    subtext: 'Multimodal VQA system with CLIP embeddings and LSTM-based language modeling. Answers image questions at ~85% accuracy—no vision, but decent opinions.',
     url: '',
   },
 ];

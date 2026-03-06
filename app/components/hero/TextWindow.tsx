@@ -28,7 +28,7 @@ const TextWindow = () => {
 
       <Text color="white" anchorX="left" anchorY="middle"
         fontSize={1.3}
-        position={[0.12, 0, 0]}
+        position={[0, 0, 0]}
         {...fontProps}
         scale={[1, -1, 1]}
         rotation={[0, 0,  -Math.PI / 2]}>
@@ -39,7 +39,7 @@ const TextWindow = () => {
         {...fontProps}
         scale={[-1, -1, 1]}
         fontSize={1.3}
-        position={[0.12, 0, -1.4]}
+        position={[0, 0, -1.4]}
         rotation={[0, 0,  -Math.PI / 2]}>
         MULTIMODAL • PERCEPTION
       </Text>
@@ -48,7 +48,8 @@ const TextWindow = () => {
         <Text color="white" anchorX="left" anchorY="middle"
           {...fontProps}
           scale={[1, -1, 1]}
-          fontSize={0.8}
+          fontSize={0.75}
+          position={[0, 0.2, 0]}
           rotation={[0, -Math.PI / 2,  -Math.PI / 2]}>
           REINFORCEMENT LEARNING
         </Text>
@@ -56,8 +57,8 @@ const TextWindow = () => {
         <Text color="white" anchorX="left" anchorY="middle"
           {...fontProps}
           scale={[1, -1, 1]}
-          fontSize={0.8}
-          position={[0, 0, -0.6]}
+          fontSize={0.75}
+          position={[0, -0.4, 0]}
           rotation={[0, -Math.PI / 2,  -Math.PI / 2]}>
           SIMULATION • RTMAPS
         </Text>
@@ -67,15 +68,16 @@ const TextWindow = () => {
         <Text color="white" anchorX="right" anchorY="middle"
           {...fontProps}
           scale={[-1, -1, 1]}
-          fontSize={0.8}
+          fontSize={0.75}
+          position={[0, 0.2, 0]}
           rotation={[0, -Math.PI / 2,  -Math.PI / 2]}>
           COMPUTER VISION
         </Text>
         <Text color="white" anchorX="right" anchorY="middle"
           {...fontProps}
           scale={[-1, -1, 1]}
-          fontSize={0.8}
-          position={[0, 0, -0.6]}
+          fontSize={0.75}
+          position={[0, -0.4, 0]}
           rotation={[0, -Math.PI / 2,  -Math.PI / 2]}>
           SENSOR FUSION
         </Text>
