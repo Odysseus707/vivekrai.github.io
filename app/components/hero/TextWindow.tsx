@@ -28,7 +28,7 @@ const TextWindow = () => {
 
       <Text color="white" anchorX="left" anchorY="middle"
         fontSize={1.3}
-        position={[0, 0, 0]}
+        position={[0.15, 0, 0]}
         {...fontProps}
         scale={[1, -1, 1]}
         rotation={[0, 0,  -Math.PI / 2]}>
@@ -39,9 +39,9 @@ const TextWindow = () => {
         {...fontProps}
         scale={[-1, -1, 1]}
         fontSize={1.3}
-        position={[0, 0, -1.4]}
+        position={[0.15, 0, -1.4]}
         rotation={[0, 0,  -Math.PI / 2]}>
-        MULTIMODAL • PERCEPTION
+        AI FOR SCIENCE
       </Text>
 
       <group position={[-0.45, 0, -0.3]}>
@@ -49,7 +49,7 @@ const TextWindow = () => {
           {...fontProps}
           scale={[1, -1, 1]}
           fontSize={0.75}
-          position={[0, 0.2, 0]}
+          position={[0, 0, -0.6]}
           rotation={[0, -Math.PI / 2,  -Math.PI / 2]}>
           REINFORCEMENT LEARNING
         </Text>
@@ -58,9 +58,9 @@ const TextWindow = () => {
           {...fontProps}
           scale={[1, -1, 1]}
           fontSize={0.75}
-          position={[0, -0.4, 0]}
+          position={[0, 0, -0.05]}
           rotation={[0, -Math.PI / 2,  -Math.PI / 2]}>
-          SIMULATION • RTMAPS
+          SIMULATION & RTMAPS
         </Text>
       </group>
 
@@ -69,7 +69,7 @@ const TextWindow = () => {
           {...fontProps}
           scale={[-1, -1, 1]}
           fontSize={0.75}
-          position={[0, 0.2, 0]}
+          position={[0, 0, -0.55]}
           rotation={[0, -Math.PI / 2,  -Math.PI / 2]}>
           COMPUTER VISION
         </Text>
@@ -77,9 +77,9 @@ const TextWindow = () => {
           {...fontProps}
           scale={[-1, -1, 1]}
           fontSize={0.75}
-          position={[0, -0.4, 0]}
+          position={[0, 0, 0]}
           rotation={[0, -Math.PI / 2,  -Math.PI / 2]}>
-          SENSOR FUSION
+          SCIENCE REASEARCH
         </Text>
       </group>
     </group>
