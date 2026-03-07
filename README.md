@@ -15,5 +15,5 @@ Checkout the live version at [vivekrai.github.io/](https://odysseus707.github.io
 - Zustand
 - Tailwind
 
-
+Thanks!
 
