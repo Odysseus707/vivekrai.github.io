@@ -45,6 +45,12 @@ export const PROJECTS: Project[] = [
     url: '',
   },
   {
+    title: 'LLM from Scratch',
+    date: 'FEB 2026',
+    subtext: 'Why use ChatGPT when you can make ChatGPT? Implemented a GPT-2-style transformer from scratch in PyTorch. It’s not as good, but it’s all mine.',
+    url: '',
+  },
+  {
     title: 'Portfolio',
     date: 'MAR 2026',
     subtext: '[Enter a meta joke].',
