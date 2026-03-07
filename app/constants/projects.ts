@@ -33,15 +33,15 @@ export const PROJECTS: Project[] = [
     url: '',
   },
   {
-    title: 'Decentralized Med Imaging',
-    date: 'DEC 2025',
-    subtext: 'Simulated cross-silo decentralized learning over hospital networks, keeping data private while retaining ~94% of centralized accuracy on PathMNIST.',
-    url: '',
-  },
-  {
     title: 'EcoCAR Intersection',
     date: 'SEP 2025',
     subtext: 'Taught an EcoCAR to handle intersections with PPO + Simulink and RTMaps sensor fusion. The car listens better than most humans at a 4‑way stop.',
+    url: '',
+  },
+  {
+    title: 'Decentralized Med Imaging',
+    date: 'DEC 2025',
+    subtext: 'Simulated cross-silo decentralized learning over hospital networks, keeping data private while retaining ~94% of centralized accuracy on PathMNIST.',
     url: '',
   },
   {
