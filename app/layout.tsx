@@ -21,8 +21,8 @@ const GA_ID =
 export const metadata: Metadata = {
   metadataBase: new URL("https://odysseus707.github.io"),
   title: "Vivek Rai",
-  description: "Frontend engineer by profession, a creative at heart.",
-  keywords: "Vivek Rai, Frontend Engineer, React Developer, Three.js, Creative Developer, Web Development, JavaScript, TypeScript, Portfolio",
+  description: "ML Engineer by profession, creative at heart.",
+  keywords: "Vivek Rai, ML Engineer, Portfolio",
   authors: [{ name: "Vivek Rai" }],
   creator: "Vivek Rai",
   publisher: "Vivek Rai",
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Vivek Rai - Frontend Engineer",
-    description: "Frontend engineer by profession, creative at heart.",
+    title: "Vivek Rai - ML Engineer",
+    description: "ML engineer by profession, creative at heart.",
     url: "https://odysseus707.github.io",
     siteName: "Vivek Rai's Portfolio",
     locale: "en_US",
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vivek Rai - Frontend Engineer",
-    description: "Frontend engineer by profession, creative at heart.",
+    title: "Vivek Rai - ML Engineer",
+    description: "ML engineer by profession, creative at heart.",
   },
 };
 
