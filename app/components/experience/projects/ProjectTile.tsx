@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { isMobile } from "react-device-detect";
 import * as THREE from "three";
 
-import { usePortalStore } from "@stores";
+import { useDemoStore, usePortalStore } from "@stores";
 import { Project } from "@types";
 
 interface ProjectTileProps {
@@ -19,9 +19,12 @@ interface ProjectTileProps {
 
 const ProjectTile = ({ project, index, position, rotation, activeId, onClick }: ProjectTileProps) => {
   const projectRef = useRef<THREE.Group>(null);
+  const urlButtonRef = useRef<THREE.Group>(null);
+  const demoButtonRef = useRef<THREE.Group>(null);
   const hoverAnimRef = useRef<gsap.core.Timeline | null>(null);
   const [hovered, setHovered] = useState(false);
   const isProjectSectionActive = usePortalStore((state) => state.activePortalId === "projects");
+  const setDemoOpen = useDemoStore((state) => state.setDemoOpen);
 
   const titleProps = useMemo(() => ({
     font: "./soria-font.ttf",
@@ -39,7 +42,7 @@ const ProjectTile = ({ project, index, position, rotation, activeId, onClick }: 
     if (!projectRef.current) return;
     hoverAnimRef.current?.kill();
 
-    const [mesh, title, dateGroup, textBox, button] = projectRef.current.children;
+    const [mesh, title, dateGroup, textBox] = projectRef.current.children;
 
     hoverAnimRef.current = gsap.timeline();
     hoverAnimRef.current
@@ -59,11 +62,12 @@ const ProjectTile = ({ project, index, position, rotation, activeId, onClick }: 
       .to((mesh as THREE.Mesh).material, { opacity: hovered ? 0.95 : 0.3 }, 0)
       .to(mesh.position, { y: hovered ? 1 : 0 }, 0);
 
-    if (project.url) {
-      hoverAnimRef.current
+    [urlButtonRef.current, demoButtonRef.current].forEach((button) => {
+      if (!button) return;
+      hoverAnimRef.current!
         .to(button.scale, { y: hovered ? 1 : 0, x: hovered ? 1 : 0 }, 0)
         .to(button.position, { z: hovered ? 0.3 : -1 }, 0);
-    }
+    });
   }, [hovered]);
 
   useEffect(() => {
@@ -82,14 +86,52 @@ const ProjectTile = ({ project, index, position, rotation, activeId, onClick }: 
     }
   }, [isProjectSectionActive]);
 
-  const handleClick = (e: ThreeEvent<MouseEvent>) => {
+  const pressButton = (e: ThreeEvent<MouseEvent>, action: () => void) => {
     e.stopPropagation();
-    if (!project.url) return;
     const button = e.eventObject;
     gsap.to(button.position, { z: 0, duration: 0.1 })
       .then(() => gsap.to(button.position, { z: 0.3, duration: 0.3 }));
-    setTimeout(() => window.open(project.url, '_blank'), 50);
+    setTimeout(action, 50);
   };
+
+  const handleUrlClick = (e: ThreeEvent<MouseEvent>) => {
+    if (!project.url) return;
+    pressButton(e, () => window.open(project.url, '_blank'));
+  };
+
+  const handleDemoClick = (e: ThreeEvent<MouseEvent>) => {
+    pressButton(e, () => setDemoOpen(true));
+  };
+
+  const tileButton = (
+    ref: React.RefObject<THREE.Group | null>,
+    x: number,
+    width: number,
+    label: string,
+    fontSize: number,
+    handler: (e: ThreeEvent<MouseEvent>) => void,
+  ) => (
+    <group
+      ref={ref}
+      position={[x, -0.6, -1]}
+      scale={[0, 0, 1]}
+      onClick={handler}
+      onPointerOver={() => document.body.style.cursor = 'pointer'}
+      onPointerOut={() => document.body.style.cursor = 'auto'}>
+      <mesh>
+        <boxGeometry args={[width, 0.4, 0.2]} />
+        <meshBasicMaterial color="#222" />
+        <Edges color="white" lineWidth={1} />
+      </mesh>
+      <Text
+        {...subtitleProps}
+        color="white"
+        position={[-width / 2 + 0.15, 0.15, 0.2]}
+        fontSize={fontSize}>
+        {label}
+      </Text>
+    </group>
+  );
 
   return (
     <group
@@ -135,26 +177,13 @@ const ProjectTile = ({ project, index, position, rotation, activeId, onClick }: 
           fontSize={0.2}>
           {project.subtext}
         </Text>
-        {project.url && (
-          <group
-            position={[1.3, -0.6, -1]}
-            scale={[0, 0, 1]}
-            onClick={handleClick}
-            onPointerOver={() => document.body.style.cursor = 'pointer'}
-            onPointerOut={() => document.body.style.cursor = 'auto'}>
-            <mesh>
-              <boxGeometry args={[1.1, 0.4, 0.2]} />
-              <meshBasicMaterial color="#222" />
-              <Edges color="white" lineWidth={1} />
-            </mesh>
-            <Text
-              {...subtitleProps}
-              color="white"
-              position={[-0.4, 0.15, 0.2]}
-              fontSize={0.25}>
-              VIEW ↗
-            </Text>
-          </group>
+        {project.demo ? (
+          <>
+            {tileButton(demoButtonRef, 0.35, 1.15, 'TRY NOW', 0.22, handleDemoClick)}
+            {project.url && tileButton(urlButtonRef, 1.55, 1.15, 'GITHUB ↗', 0.22, handleUrlClick)}
+          </>
+        ) : (
+          project.url && tileButton(urlButtonRef, 1.3, 1.1, 'VIEW ↗', 0.25, handleUrlClick)
         )}
       </group>
     </group>

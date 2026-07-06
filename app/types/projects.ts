@@ -9,4 +9,6 @@ export interface Project {
   subtext: string;
   url?: string;
   urls?: ProjectUrl[];
+  /** Shows a TRY NOW button that opens the in-browser live demo overlay. */
+  demo?: boolean;
 }

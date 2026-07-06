@@ -56,4 +56,11 @@ export const PROJECTS: Project[] = [
     subtext: '[Enter a meta joke].',
     url: '',
   },
+  {
+    title: 'WhisperFlow Local',
+    date: 'JUL 2026',
+    subtext: 'Hold a key, speak, release — on-device Whisper types it at your cursor and a local LLM tidies it up. Even the "ums" are deleted locally. Try it right here.',
+    url: 'https://github.com/Odysseus707/WhisperFlow-Local',
+    demo: true,
+  },
 ];
